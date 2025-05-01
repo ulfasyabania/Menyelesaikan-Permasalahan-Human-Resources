@@ -1,51 +1,42 @@
-# **Proyek Akhir: Mengurangi Attrition Rate di Perusahaan Jaya Jaya Maju**
+# Proyek Pertama: Menyelesaikan Permasalahan Human Resources
 
-## **Business Understanding**
-### **Latar Belakang Bisnis**
-Jaya Jaya Maju adalah perusahaan multinasional yang telah berdiri sejak tahun 2000 dengan lebih dari 1000 karyawan tersebar di seluruh negeri. Walaupun perusahaan ini berkembang pesat, mereka mengalami kesulitan dalam mengelola karyawan yang berakibat pada tingginya **attrition rate** lebih dari 10%.
+## Business Understanding
+**Perusahaan:** Jaya Jaya Maju  
+**Latar Belakang:**  
+Jaya Jaya Maju adalah perusahaan multinasional yang berdiri sejak tahun 2000 dengan lebih dari 1.000 karyawan yang tersebar di seluruh negeri. Meskipun berkembang, perusahaan mengalami manajemen karyawan yang kurang optimal, sehingga menyebabkan attrition rate (rasio karyawan yang keluar) mencapai lebih dari 10%.
 
-### **Permasalahan Bisnis**
-Tingginya tingkat keluar-masuk karyawan berdampak negatif terhadap:
-- Biaya rekrutmen dan pelatihan yang meningkat.
-- Penurunan produktivitas operasional.
-- Kesulitan mempertahankan talenta terbaik.
-
-### **Cakupan Proyek**
-1. Identifikasi faktor utama penyebab tingginya attrition rate menggunakan analisis data.
-2. Pembuatan **business dashboard** interaktif untuk memonitor faktor-faktor tersebut.
-3. Memberikan rekomendasi solusi berdasarkan hasil analisis.
+**Tujuan Proyek:**  
+Menganalisis dataset karyawan untuk:
+- Mengidentifikasi faktor-faktor yang mempengaruhi tingginya attrition rate.
+- Menyusun insight yang dapat mendukung pengambilan keputusan di departemen HR.
+- Membangun business dashboard yang memonitor metrik-metrik kunci.
 
 ---
 
-## **Persiapan**
-### **Sumber Data**
-Dataset karyawan: [employee_data.csv](https://raw.githubusercontent.com/dicodingacademy/dicoding_dataset/refs/heads/main/employee/employee_data.csv).
+## Permasalahan Bisnis
+1. **Attrition Rate Tinggi:**  
+   Kebanyakan karyawan mengundurkan diri, sehingga berdampak pada produktivitas dan biaya operasional perusahaan.
 
-### **Setup Environment**
-- Python: Pandas, Matplotlib, Seaborn, Sklearn.
-- Dashboard: Looker Studio.
-
----
-
-## **Business Dashboard**
-Dashboard dibuat menggunakan **Looker Studio** untuk membantu departemen HR memahami data dan memonitor berbagai faktor yang memengaruhi attrition rate.  
-- **Metrik yang Ditampilkan**:
-  - Tingkat Attrition Rate.
-  - Faktor utama penyebab attrition (usia, gaji, lama bekerja, dll.).
-  - Tren keluar-masuk karyawan per periode.
-  - Perbandingan antar departemen dengan tingkat attrition tertinggi.  
-
-### **Link Dashboard**: [Link Dashboard Attrition](#).
+2. **Faktor Penyebab:**  
+   Diperlukan analisis untuk mengetahui apakah faktor seperti usia, departemen, masa kerja, dan variabel demografi lainnya berpengaruh pada attrition rate.
 
 ---
 
-## **Conclusion**
-### **Kesimpulan**
-Analisis menunjukkan faktor utama yang memengaruhi tingginya attrition rate adalah kepuasan kerja, usia, dan kebijakan gaji perusahaan. Dashboard memberikan visualisasi yang membantu HR dalam mengambil keputusan strategis.
-
-### **Rekomendasi Action Items**
-1. Tingkatkan kepuasan kerja melalui kebijakan pengembangan karir.
-2. Tinjau kembali kebijakan gaji agar lebih kompetitif.
-3. Perkuat strategi retensi talenta.
+## Cakupan Proyek
+Proyek ini mencakup:
+- Pengumpulan dan pembersihan data karyawan.
+- Eksplorasi data untuk menemukan pola dan hubungan antar variabel.
+- Pembuatan business dashboard sebagai alat monitoring.
+- (Opsional) Pembuatan model prediksi menggunakan machine learning untuk mengidentifikasi karyawan yang berpotensi keluar.
 
 ---
+
+## Setup Environment
+- **Bahasa Pemrograman:** Python 3.x  
+- **Library:** pandas, numpy, scikit-learn (jika membuat model)  
+- **Tool BI:** Metabase  
+- **Deployment:** Metabase dijalankan lokal menggunakan Docker.  
+- **Perintah Docker (Metabase):**
+  ```bash
+  docker pull metabase/metabase:v0.46.4
+  docker run -p 3000:3000 --name metabase metabase/metabase

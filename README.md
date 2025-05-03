@@ -1,4 +1,4 @@
-# Dokumentasi Proyek: **Menyelesaikan Permasalahan Human Resources** ulfasyabania
+# Dokumentasi Proyek: **Menyelesaikan Permasalahan Human Resources** - ulfasyabania_dicoding
 
 ## Pendahuluan
 

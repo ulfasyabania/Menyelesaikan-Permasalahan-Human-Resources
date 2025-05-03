@@ -16,7 +16,7 @@ Dataset yang digunakan berasal dari sumber berikut:
 
 ---
 
-## 3. Persiapan Data
+## 3. Persiapan Data (Data Preparation & Feature Engineering)
 Langkah-langkah preprocessing yang dilakukan:
 ```python
 import pandas as pd
@@ -56,17 +56,29 @@ plt.show()
 ---
 
 ## 5. Model Machine Learning
-Model yang digunakan dalam analisis ini adalah **Random Forest** dan **XGBoost**.
+Model yang digunakan dalam analisis ini adalah **XGBoost** dan **Bayesian Optimization**
 
 ```python
-from sklearn.ensemble import RandomForestClassifier
-from xgboost import XGBClassifier
+from bayes_opt import BayesianOptimization
+from sklearn.metrics import accuracy_score
 
-rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
-xgb_model = XGBClassifier(n_estimators=100, random_state=42, use_label_encoder=False)
+def xgb_evaluate(n_estimators, max_depth, learning_rate):
+    model = XGBClassifier(
+        n_estimators=int(n_estimators),
+        max_depth=int(max_depth),
+        learning_rate=learning_rate,
+        random_state=42
+    )
+    model.fit(X_train_scaled, y_train)
+    accuracy = accuracy_score(y_test, model.predict(X_test_scaled))
+    return accuracy
 
-rf_model.fit(X_train_scaled, y_train)
-xgb_model.fit(X_train_scaled, y_train)
+param_bounds = {'n_estimators': (50, 200), 'max_depth': (3, 10), 'learning_rate': (0.01, 0.2)}
+optimizer = BayesianOptimization(f=xgb_evaluate, pbounds=param_bounds, random_state=42)
+optimizer.maximize(init_points=5, n_iter=20)
+
+print("Best Parameters from Bayesian Optimization:", optimizer.max)
+
 ```
 
 ---
@@ -74,14 +86,19 @@ xgb_model.fit(X_train_scaled, y_train)
 ## 6. Evaluasi Model
 Hasil evaluasi model menggunakan **akurasi**:
 ```python
-from sklearn.metrics import accuracy_score, classification_report
+best_params = optimizer.max['params']
 
-y_pred_rf = rf_model.predict(X_test_scaled)
-y_pred_xgb = xgb_model.predict(X_test_scaled)
+final_xgb = XGBClassifier(
+    n_estimators=int(best_params['n_estimators']),
+    max_depth=int(best_params['max_depth']),
+    learning_rate=best_params['learning_rate'],
+    random_state=42
+)
+final_xgb.fit(X_train_scaled, y_train)
+y_pred_final = final_xgb.predict(X_test_scaled)
 
-print("Random Forest Accuracy:", accuracy_score(y_test, y_pred_rf))
-print("XGBoost Accuracy:", accuracy_score(y_test, y_pred_xgb))
-print("\nClassification Report XGBoost:\n", classification_report(y_test, y_pred_xgb))
+print("Final Model Accuracy:", accuracy_score(y_test, y_pred_final))
+
 ```
 
 ---
@@ -122,7 +139,57 @@ fig.show()
 
 ---
 
-## 9. **Kesimpulan**
-Model machine learning berhasil dibuat untuk memprediksi **attrition** karyawan. Model **Bayesian Optimization** menunjukkan performa lebih baik dibandingkan **XGBoost**, berdasarkan hasil evaluasi akurasi. Dengan SHAP analysis, kita dapat mengidentifikasi faktor yang paling berpengaruh dalam keputusan model. Selain itu, dashboard bisnis yang dibuat dengan **Looker Studio** memberikan gambaran visual yang lebih interaktif.
+## 9. ### **Kesimpulan dan Rekomendasi untuk HRD Jaya Jaya Maju**  
+Berdasarkan analisis SHAP, kita dapat mengidentifikasi faktor-faktor yang paling berpengaruh terhadap prediksi karyawan keluar (**attrition**). Model Bayesian Optimization yang digunakan menunjukkan bahwa **MonthlyIncome, YearsAtCompany, dan YearsSinceLastPromotion** adalah fitur utama yang mempengaruhi keputusan resign.
 
 ---
+
+## **Kesimpulan: Faktor-Faktor yang Berkontribusi terhadap Attrition**
+1. **Pendapatan Bulanan (MonthlyIncome) Berpengaruh Signifikan**  
+   - Karyawan dengan **pendapatan lebih rendah** memiliki kemungkinan lebih tinggi untuk keluar.  
+   - SHAP menunjukkan bahwa **nilai MonthlyIncome yang tinggi** cenderung **mengurangi risiko attrition**.  
+
+2. **Masa Kerja di Perusahaan (YearsAtCompany) dan Stagnasi Promosi (YearsSinceLastPromotion)**  
+   - Karyawan dengan **masa kerja lama tetapi tanpa promosi** lebih rentan terhadap attrition.  
+   - **Kurangnya pertumbuhan karier** menjadi salah satu pemicu utama resign.  
+
+3. **TotalWorkingYears dan YearsInCurrentRole**  
+   - SHAP menunjukkan bahwa **karyawan yang bekerja lama tetapi tetap dalam peran yang sama tanpa perubahan signifikan** lebih berisiko keluar.  
+   - Perusahaan perlu memastikan adanya **rotasi jabatan atau peluang pengembangan**.  
+
+---
+
+## **Rekomendasi untuk HRD Jaya Jaya Maju**
+1. **Strategi Kenaikan Gaji Berdasarkan Masa Kerja dan Performa**  
+   - Menawarkan **kenaikan gaji** atau **bonus berbasis kontribusi** untuk meningkatkan retensi karyawan.  
+   - Memastikan skema kompensasi tetap kompetitif, terutama bagi karyawan dengan masa kerja lebih dari 3-5 tahun.  
+
+2. **Program Pengembangan Karier dan Promosi**  
+   - Meningkatkan kesempatan **promosi dan rotasi jabatan** agar karyawan tidak stagnan dalam posisi yang sama.  
+   - Menyediakan jalur karier yang jelas dengan **target promosi berdasarkan performa**.  
+
+3. **Intervensi Dini untuk Karyawan Berisiko Tinggi Keluar**  
+   - Menggunakan hasil prediksi model untuk **memantau karyawan dengan risiko tinggi keluar**.  
+   - Melakukan **mentoring** atau **penyesuaian peran** bagi karyawan yang menunjukkan tanda-tanda ketidakpuasan.  
+
+4. **Optimalisasi Sistem Evaluasi Kinerja**  
+   - Mengurangi masa tunggu untuk promosi bagi karyawan berprestasi.  
+   - Menyediakan **insentif berbasis prestasi** dan meningkatkan transparansi dalam sistem penilaian kinerja.  
+
+5. **Meningkatkan Budaya dan Kesejahteraan Karyawan**  
+   - Mengembangkan **work-life balance** agar karyawan lebih puas dengan lingkungan kerja mereka.  
+   - Memperkuat budaya apresiasi terhadap kontribusi karyawan dengan **penghargaan rutin dan feedback yang lebih sering diberikan**.  
+
+---
+
+## **Next Steps**
+1. **Integrasi Model ke Dashboard HR untuk Analisis Real-Time**  
+   - Menggunakan Looker Studio atau Power BI untuk **memantau pola attrition secara langsung**.  
+
+2. **Pelaksanaan Program Retensi Berdasarkan Hasil Prediksi**  
+   - Memberikan **mentoring khusus** atau **bonus tambahan** bagi karyawan yang teridentifikasi berisiko tinggi resign.  
+
+3. **Monitoring Model Secara Berkala**  
+   - Memperbarui prediksi setiap kuartal untuk melihat perubahan pola kerja dan meningkatkan akurasi model.  
+
+Dengan menerapkan rekomendasi ini, **HRD Jaya Jaya Maju dapat mengidentifikasi pola resign lebih dini dan menyusun strategi retensi karyawan yang lebih efektif**.

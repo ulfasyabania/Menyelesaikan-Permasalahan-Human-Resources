@@ -1,0 +1,128 @@
+# Membuat Model Machine Learning untuk Jaya Jaya Maju
+
+## 1. Pendahuluan
+Jaya Jaya Maju adalah perusahaan multinasional yang menghadapi tantangan dalam mengelola karyawan. Tingginya **attrition rate** menjadi masalah utama yang perlu dianalisis menggunakan pendekatan **machine learning**.
+
+## 2. Dataset
+Dataset yang digunakan berasal dari sumber berikut:
+- **Nama Dataset**: Employee Data
+- **Sumber**: [Dicoding Dataset](https://github.com/dicodingacademy/dicoding_dataset/tree/main/employee)
+- **Fitur Penting**:
+  - `Age`: Usia karyawan
+  - `MonthlyIncome`: Gaji bulanan
+  - `TotalWorkingYears`: Total tahun bekerja
+  - `YearsAtCompany`: Lama bekerja di perusahaan
+  - `Attrition`: Status keluar atau tetap (0 = tetap, 1 = keluar)
+
+---
+
+## 3. Persiapan Data
+Langkah-langkah preprocessing yang dilakukan:
+```python
+import pandas as pd
+df = pd.read_csv("https://raw.githubusercontent.com/dicodingacademy/dicoding_dataset/refs/heads/main/employee/employee_data.csv")
+
+# Menghapus nilai kosong
+df.dropna(subset=['Attrition'], inplace=True)
+
+# Konversi nilai kategorikal
+df['Attrition'] = df['Attrition'].map({'Yes': 1, 'No': 0})
+```
+
+---
+
+## 4. Eksplorasi Data dan Analisis Korelasi
+### **Heatmap Korelasi Antar Fitur**
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df_numeric = df.select_dtypes(include=['number'])
+corr_matrix = df_numeric.corr()
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(corr_matrix, annot=True, cmap='coolwarm')
+plt.title("Korelasi Antar Fitur")
+plt.show()
+```
+
+### **Distribusi Pendapatan berdasarkan Attrition**
+```python
+sns.boxplot(x=df['Attrition'], y=df['MonthlyIncome'])
+plt.title("Distribusi MonthlyIncome berdasarkan Attrition")
+plt.show()
+```
+
+---
+
+## 5. Model Machine Learning
+Model yang digunakan dalam analisis ini adalah **Random Forest** dan **XGBoost**.
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+from xgboost import XGBClassifier
+
+rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+xgb_model = XGBClassifier(n_estimators=100, random_state=42, use_label_encoder=False)
+
+rf_model.fit(X_train_scaled, y_train)
+xgb_model.fit(X_train_scaled, y_train)
+```
+
+---
+
+## 6. Evaluasi Model
+Hasil evaluasi model menggunakan **akurasi**:
+```python
+from sklearn.metrics import accuracy_score, classification_report
+
+y_pred_rf = rf_model.predict(X_test_scaled)
+y_pred_xgb = xgb_model.predict(X_test_scaled)
+
+print("Random Forest Accuracy:", accuracy_score(y_test, y_pred_rf))
+print("XGBoost Accuracy:", accuracy_score(y_test, y_pred_xgb))
+print("\nClassification Report XGBoost:\n", classification_report(y_test, y_pred_xgb))
+```
+
+---
+
+## 7. **SHAP Analysis (Explainability Model)**
+SHAP digunakan untuk memahami fitur mana yang paling berpengaruh dalam keputusan model:
+```python
+import shap
+
+explainer = shap.TreeExplainer(xgb_model)
+shap_values = explainer.shap_values(X_test_scaled)
+
+# Visualisasi SHAP
+shap.summary_plot(shap_values, X_test_scaled)
+```
+
+```python
+# Visualisasi SHAP untuk satu sampel
+shap.force_plot(explainer.expected_value, shap_values[0], X_test_scaled[0])
+```
+
+---
+
+## 8. **Dashboard Interaktif dengan Looker Studio**
+Untuk membantu visualisasi hasil model dalam bentuk dashboard interaktif:
+URL: https://lookerstudio.google.com/reporting/ab305826-1b90-4ded-ae78-a96b77d3a686
+
+# Distribusi karyawan berdasarkan usia dan pendapatan
+fig = px.scatter(df, x="Age", y="MonthlyIncome", color="Attrition", title="Distribusi Pendapatan vs Usia Berdasarkan Attrition")
+fig.show()
+```
+
+```python
+# Histogram Attrition
+fig = px.histogram(df, x="Attrition", title="Distribusi Attrition")
+fig.show()
+```
+
+---
+
+## 9. **Kesimpulan**
+Model machine learning berhasil dibuat untuk memprediksi **attrition** karyawan. Model **Bayesian Optimization** menunjukkan performa lebih baik dibandingkan **XGBoost**, berdasarkan hasil evaluasi akurasi. Dengan SHAP analysis, kita dapat mengidentifikasi faktor yang paling berpengaruh dalam keputusan model. Selain itu, dashboard bisnis yang dibuat dengan **Looker Studio** memberikan gambaran visual yang lebih interaktif.
+
+---

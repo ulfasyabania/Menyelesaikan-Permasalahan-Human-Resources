@@ -1,129 +1,145 @@
-# Dokumentasi Proyek: **Menyelesaikan Permasalahan Human Resources** - ulfasyabania_dicoding
-
-## Pendahuluan
-
-### Deskripsi Proyek
-Proyek ini merupakan bagian dari submission untuk kursus **Machine Learning Terapan**. Tujuan dari proyek ini adalah untuk **mengidentifikasi dan menyelesaikan permasalahan terkait Human Resources (HR)** dalam konteks perusahaan fiktif bernama **Jaya Jaya Maju** menggunakan pendekatan berbasis data dan machine learning.
-
-Notebook ini memuat langkah-langkah untuk memproses data, melakukan analisis, hingga membangun model machine learning untuk mendukung pengambilan keputusan strategis dalam pengelolaan sumber daya manusia.
-
-### Tujuan
-1. Meningkatkan efisiensi pengelolaan sumber daya manusia.
-2. Memprediksi potensi masalah dalam HR seperti tingkat turnover karyawan.
-3. Memberikan rekomendasi actionable berdasarkan hasil analisis data.
+# **Menyelesaikan Permasalahan Human Resources Menggunakan Pendekatan Data Science** - ulfasyabania_dicoding
 
 ---
 
-## Detail Implementasi
+**Latar Belakang**
 
-### 1. Business Understanding
-- **Tujuan Analisis**:
-  - Mengidentifikasi tren turnover karyawan.
-  - Menganalisis faktor-faktor yang memengaruhi tingkat kepuasan kerja.
-- **Tools yang Digunakan**:
-  - Visualisasi data menggunakan matplotlib dan seaborn.
-  - Statistik deskriptif untuk memahami karakteristik data.
+Di era digital yang semakin kompetitif, pengelolaan sumber daya manusia (SDM) telah mengalami transformasi signifikan melalui adopsi teknologi dan analisis data. Perusahaan tidak hanya dituntut untuk merekrut dan mempertahankan talenta terbaik, tetapi juga harus memahami secara mendalam faktor-faktor yang mendorong karyawan untuk meninggalkan perusahaan. Turnover atau attrition karyawan bukan hanya sekadar angka statistik, ia menjadi cerminan dari dinamika kepuasan, beban kerja, dan keseimbangan kehidupan kerja yang mendasari kesejahteraan organisasi.
 
-### 2. Data Understanding
-- **Sumber Data**: Dataset internal perusahaan Jaya Jaya Maju.
-  https://raw.githubusercontent.com/dicodingacademy/dicoding_dataset/refs/heads/main/employee/employee_data.csv
+Dalam konteks ini, penerapan Data Science di bidang Human Resources membuka peluang untuk menggali wawasan tersembunyi dari data operasional yang selama ini tidak tereksplorasi secara maksimal. Dengan mengintegrasikan berbagai atribut seperti profil demografis, kompensasi, dan metrik kepuasan kerja, penelitian ini berfokus pada identifikasi penyebab utama attrition karyawan dan bagaimana kekuatan faktor-faktor tersebut saling berinteraksi. Melalui pendekatan analisis statistik dan pemodelan prediktif, misalnya dengan Logistic Regression yang dikembangkan dan ditingkatkan melalui hyperparameter tuning, kita dapat mengurai kontribusi masing-masing variabel terhadap risiko turnover. Hasil analisis ini tidak hanya memberikan gambaran mendalam tentang profil karyawan yang berisiko keluar, tetapi juga menyajikan dasar bagi rekomendasi strategis untuk meningkatkan retensi dan menciptakan lingkungan kerja yang lebih seimbang dan kondusif.
 
-### 3. Data Preparation
-- **Langkah-Langkah:**
-  - Melakukan eksplorasi data untuk memahami distribusi dan pola.
-  - Menangani nilai-nilai yang hilang (missing values).
-  - Encoding data kategori menjadi format numerik.
-  - Normalisasi dan standarisasi data untuk memastikan performa optimal model.
-  - Exploratory Data Analysis (EDA)
-
-### 3. Modeling Machine Learning
-- **Model yang Dibangun**:
-  - Model klasifikasi untuk memprediksi tingkat turnover karyawan.
-  - Algoritma yang digunakan: Random Forest, Logistic Regression, dan XGBoost.
-- **Evaluasi Model**:
-  - Menggunakan metrik seperti akurasi, precision, recall, dan F1-score.
-  - Memilih model terbaik berdasarkan performa di data validasi.
-
-### 4. Deployment
-- **Output**:
-  - Dashboard Interaktif dengan Looker Studio.
-    URL: https://lookerstudio.google.com/reporting/75f90d63-0782-44e5-b46c-22eded578b1a
-  - Model siap digunakan untuk memprediksi masalah HR.
-  - Rekomendasi tindakan untuk pemangku keputusan.
+Dataset yang digunakan, dengan 35 atribut mencakup aspek keuangan, demografi, dan pengalaman kerja, menyediakan gambaran komprehensif mengenai faktor-faktor yang mungkin mempengaruhi keputusan karyawan untuk bertahan atau meninggalkan perusahaan. Tantangan dalam pengolahan data, seperti penanganan missing value pada variabel kunci dan konversi fitur kategorikal, mencerminkan kompleksitas dunia nyata. Namun, melalui proses eksplorasi, pembersihan, dan pemodelan yang cermat, analisis ini mampu mengungkap insight kritis yang sebelumnya tersimpan dalam data. Inilah esensi dari pendekatan data-driven dalam HR Analytics, dirancang untuk mengubah tantangan turnover menjadi peluang strategis dalam pertumbuhan dan inovasi perusahaan.
 
 ---
 
-## 5. Kesimpulan dan Rekomendasi Strategis untuk HRD Jaya Jaya Maju
-Berdasarkan hasil **analisis data dan model machine learning (XGBoost, Random Forest, Logistic Regression)**, ditemukan beberapa **pola signifikan** yang mempengaruhi **Attrition (tingkat keluar karyawan)** di Jaya Jaya Maju. Untuk membantu HR dalam **pengambilan keputusan strategis**, berikut **kesimpulan dan rekomendasi yang lebih mendalam**.
+**Business Understanding**
+
+Dalam era persaingan global yang semakin ketat, manusia adalah aset yang paling berharga bagi perusahaan. Perusahaan modern tidak lagi hanya berfokus pada pertumbuhan produk atau inovasi teknologi, melainkan juga mengoptimalkan pengelolaan sumber daya manusia (SDM) untuk memenangkan persaingan pasar. Dalam konteks inilah, retensi dan kepuasan karyawan menjadi indikator kunci dari keberhasilan dan stabilitas jangka panjang. Tingginya angka turnover tidak hanya mengganggu stabilitas operasional, tetapi juga mengakibatkan biaya rekrutmen, pelatihan, dan penurunan produktivitas yang signifikan.
+
+Perusahaan yang sadar akan pentingnya SDM mulai mengadopsi pendekatan berbasis data (data-driven) untuk mengungkap pola-pola yang tersembunyi di balik keputusan karyawan untuk meninggalkan perusahaan. Dengan memanfaatkan kumpulan data menyeluruh yang mencakup aspek demografi, kompensasi, dan kepuasan kerja, manajemen dapat mengidentifikasi faktor-faktor utama, seperti intensitas lembur, perjalanan dinas, dan integrasi pengalaman kerja, yang secara signifikan mempengaruhi tingkat attrition. Analisis mendalam ini memungkinkan tim HR untuk mengambil langkah-langkah proaktif: mulai dari perbaikan kebijakan kerja, penyesuaian struktur gaji, hingga inisiatif peningkatan kesejahteraan sehingga mampu mengurangi risiko turnover.
+
+Bisnis ini menetapkan fondasi melalui data analytics yang tidak hanya menginformasikan tentang “siapa” yang berisiko keluar, tetapi juga “mengapa” hal itu terjadi. Pendekatan ini menciptakan peluang strategis untuk menurunkan biaya operasional, meningkatkan loyalitas, dan pada gilirannya, mengoptimalkan kinerja organisasi secara keseluruhan. Dengan transformasi digital yang terus berkembang, perusahaan dapat bergerak melampaui intuisi tradisional dan membuat keputusan yang lebih tepat dan terukur, sehingga membangun lingkungan kerja yang lebih stabil dan kompetitif dalam jangka panjang.
 
 ---
 
-### **Kesimpulan: Faktor-Faktor yang Berkontribusi terhadap Tingginya Attrition**
-Dari **analisis feature importance menggunakan XGBoost**, ditemukan bahwa **lima faktor utama** yang memengaruhi keputusan keluar karyawan adalah:
-
-### **1. Age (Usia Karyawan)**
-- **Usia menjadi faktor terkuat dalam prediksi attrition**. Karyawan yang lebih muda **(di bawah 35 tahun)** memiliki tingkat keluar lebih tinggi dibandingkan karyawan senior.
-- Ini bisa disebabkan oleh **kurangnya kesempatan karier**, paket kompensasi yang tidak menarik bagi generasi muda, atau keinginan mereka untuk mengeksplorasi pekerjaan baru.
-
-### **2. MonthlyIncome (Pendapatan Bulanan)**
-- **Pendapatan memiliki dampak signifikan terhadap keputusan keluar**. Karyawan dengan pendapatan rendah lebih berisiko untuk meninggalkan perusahaan.
-- Karyawan yang tetap bekerja memiliki pendapatan rata-rata lebih tinggi dibandingkan mereka yang keluar.
-
-### **3. YearsAtCompany dan TotalWorkingYears**
-- Masa kerja juga berpengaruh: **semakin lama seseorang bekerja di perusahaan, semakin kecil kemungkinan mereka keluar**.
-- Namun, jika masa kerja panjang **tanpa pertumbuhan karier**, ini bisa meningkatkan risiko attrition.
-
-### **4. YearsSinceLastPromotion**
-- **Karyawan yang sudah lama bekerja tetapi belum mendapatkan promosi lebih cenderung keluar**.
-- Ini menandakan bahwa kurangnya kesempatan untuk naik jabatan menjadi faktor utama penyebab resign.
-
-### **5. Job Role dan Departemen**
-- **Sales dan Customer Service memiliki tingkat keluar yang lebih tinggi**, dibandingkan departemen seperti **Engineering dan Research & Development**.
-- Kemungkinan penyebabnya adalah **tingkat tekanan pekerjaan yang lebih tinggi**, target penjualan yang sulit, atau kurangnya kepuasan kerja.
+Latar belakang bisnis ini menggarisbawahi urgensi untuk mengoptimalkan manajemen SDM dengan menghasilkan insight melalui data science. Pendekatan ini tidak hanya menawarkan solusi teknis, tetapi juga mengubah paradigma bisnis untuk menciptakan nilai tambah yang signifikan melalui retensi karyawan yang lebih baik dan lingkungan kerja yang lebih responsif terhadap dinamika pasar.
 
 ---
 
-## **Rekomendasi Strategis untuk HRD Jaya Jaya Maju**
-Berdasarkan analisis ini, tim HR **perlu menerapkan strategi berbasis data** untuk meningkatkan retensi karyawan dan mengurangi tingkat keluar.
+### Cakupan Proyek
 
-### **1. Program Retensi Karyawan Muda**  
-🔹 **Pelatihan dan mentorship intensif untuk karyawan baru** agar mereka merasa lebih terikat dengan perusahaan.  
-🔹 **Meningkatkan keseimbangan kerja-kehidupan (work-life balance)** melalui fleksibilitas kerja dan tunjangan tambahan.  
-🔹 **Memberikan kesempatan pengembangan karier lebih cepat** untuk karyawan di bawah 35 tahun.  
+1. **Pengumpulan dan Pemahaman Data**
+   - **Sumber Data:** Mengambil dataset HR yang lengkap dengan 35 atribut dari aspek keuangan, demografi, dan pengalaman kerja karyawan.
+   - **Analisis Awal:** Melakukan pemeriksaan mendalam terhadap struktur data, distribusi statistik, missing value, dan konsistensi data guna memahami kondisi awal dan tantangan kualitas data yang ada.
 
-### **2. Kebijakan Kenaikan Gaji dan Insentif Berbasis Masa Kerja**  
-🔹 **Menyesuaikan struktur gaji untuk mempertahankan karyawan dengan pendapatan lebih rendah**.  
-🔹 **Menawarkan bonus berbasis loyalitas** bagi mereka yang tetap bekerja lebih dari 3 tahun.  
-🔹 **Membangun sistem reward untuk karyawan dengan performa tinggi** guna meningkatkan motivasi kerja.  
+2. **Pembersihan dan Praproses Data**
+   - **Penanganan Missing Value:** Mengidentifikasi serta mengeliminasi atau mengimputasi missing value, terutama pada variabel target *Attrition* yang krusial untuk analisis prediktif.
+   - **Encoding Data Kategorikal:** Mengubah variabel berbasis teks (misalnya, *BusinessTravel*, *Department*, *OverTime*, dll.) ke format numerik melalui teknik one-hot encoding untuk memastikan kompatibilitas dengan algoritma machine learning.
+   - **Skalasi dan Normalisasi:** Menerapkan standardisasi atau normalisasi pada fitur-fitur numerik sehingga skala data seragam dan menghindari bias model.
 
-### **3. Optimalisasi Sistem Promosi dan Pengembangan Karier**  
-🔹 **Mengurangi masa tunggu untuk promosi bagi karyawan berprestasi**.  
-🔹 **Menerapkan program job rotation** untuk menghindari stagnasi dalam peran yang sama.  
-🔹 **Memastikan karyawan yang telah lama bekerja mendapatkan pengakuan dan peningkatan karier**.  
+3. **Eksploratory Data Analysis (EDA)**
+   - **Visualisasi dan Analisis Deskriptif:** Melakukan visualisasi mendalam dengan histogram, boxplot, countplot, heatmap, dan pairplot untuk mengeksplorasi hubungan antar fitur dan melihat pola tersembunyi yang mungkin menjadi indikator utama terjadinya attrition.
+   - **Analisis Statistik:** Menjalankan uji statistik (seperti uji chi-square) untuk mengonfirmasi signifikansi hubungan antar fitur dan keputusan karyawan.
 
-### **4. Strategi HR Berdasarkan Model Prediksi (XGBoost & Dashboard Data)**  
-🔹 **Menggunakan machine learning untuk mengidentifikasi karyawan yang berisiko keluar** lebih dini.  
-🔹 **Mengembangkan dashboard interaktif** untuk memantau pola attrition secara real-time.  
-🔹 **Mengintegrasikan analisis data dalam pengambilan keputusan HR**, bukan hanya berdasarkan intuisi.  
+4. **Feature Engineering dan Seleksi Fitur**
+   - **Penciptaan Fitur Baru:** Mengolah dan mengkombinasikan beberapa variabel untuk membentuk fitur yang lebih representatif (misalnya, segmentasi berdasarkan usia atau tingkat pengalaman kerja) guna memperkuat sinyal prediktif.
+   - **Analisis Feature Importance:** Menggunakan model prediktif seperti Logistic Regression—serta metode interpretasi canggih seperti SHAP—untuk mengidentifikasi fitur-fitur yang memberikan kontribusi signifikan terhadap risiko attrition.
+
+5. **Pengembangan Model Prediktif**
+   - **Pemodelan Machine Learning:** Membangun dan melatih model prediktif (Logistic Regression atau model berbasis ensemble) untuk memprediksi likelihood terjadinya attrition.
+   - **Hyperparameter Tuning:** Mengoptimalkan model melalui teknik Grid Search atau Randomized Search dengan cross-validation agar mendapatkan performa terbaik.
+   - **Evaluasi Model:** Mengukur kinerja model menggunakan metrik seperti accuracy, precision, recall, f1-score, confusion matrix, dan ROC-AUC.
+
+6. **Insight Bisnis dan Rekomendasi Strategis**
+   - **Interpretasi Hasil Model:** Menguraikan hasil analisis dan evaluasi model, menyoroti fitur-fitur kunci yang berpengaruh dalam keputusan karyawan untuk keluar.
+   - **Rekomendasi Tindakan:** Menyusun strategi actionable untuk tim HR, misalnya, perbaikan kebijakan overtime, penyesuaian skala kompensasi, serta program kesejahteraan khusus yang dapat menurunkan tingkat turnover dan meningkatkan loyalitas karyawan.
+
+7. **Pelaporan dan Dashboard Interaktif Menggunakan Looker Studio**  
+   - **Integrasi Data:** Koneksikan data hasil praproses ke Google Data Studio (sekarang dikenal sebagai Looker Studio) melalui platform data warehouse seperti Google BigQuery atau lainnya.  
+   - **Desain Dashboard:**  
+     - **Visualisasi KPI Utama:** Menampilkan metrik kritis seperti attrition rate, rata-rata pendapatan bulanan, dan tren turnover secara real-time.  
+     - **Visualisasi Interaktif:** Menggunakan diagram batang, diagram lingkaran, dan garis tren untuk menggambarkan distribusi attrition berdasarkan departemen, status OverTime, serta fitur lainnya.  
+     - **Filter dan Interaktivitas:** Menyediakan opsi filter (misalnya, berdasarkan departemen, usia, atau job role) agar manajemen dapat melakukan drill-down pada insight yang lebih spesifik.  
+   - **Dokumentasi Dashboard:** Menyusun laporan dan dokumentasi penggunaan dashboard yang memudahkan stakeholder dalam mengambil keputusan berbasis data.
+
+6. **Dokumentasi Proyek dan Rekomendasi Bisnis**  
+   - **Laporan Komprehensif:** Menyusun dokumentasi yang merangkum setiap tahap proyek, mulai dari pengumpulan data hingga analisis dan pemodelan.  
+   - **Insight dan Rekomendasi Strategis:** Menyajikan hasil analisis beserta rekomendasi actionable—seperti perbaikan kebijakan lembur dan strategi retensi—untuk membantu perusahaan mengurangi turnover dan meningkatkan produktivitas.
 
 ---
 
-### **Kesimpulan Akhir**
-- **Pendekatan berbasis data dan AI menunjukkan bahwa usia, gaji, dan jenjang karier adalah faktor utama dalam keputusan keluar karyawan.**  
-- **HR dapat mengurangi attrition dengan strategi yang lebih terarah**, termasuk retensi karyawan muda, peningkatan kompensasi, dan promosi yang lebih cepat.  
-- **Menggunakan model prediksi seperti XGBoost memungkinkan perusahaan untuk melakukan intervensi lebih awal terhadap karyawan yang berisiko keluar.**  
+Cakupan proyek ini dirancang untuk mengubah data mentah yang kompleks menjadi insight yang mendalam dan actionable. Pendekatan komprehensif ini, yang diakhiri dengan dashboard interaktif berbasis Looker Studio, akan memungkinkan tim manajemen untuk memantau secara real-time indikator kritis dan melakukan keputusan strategis yang tepat. 
 
-Jika strategi ini diterapkan, Jaya Jaya Maju dapat **meningkatkan loyalitas karyawan, mengurangi angka resign, dan menciptakan lingkungan kerja yang lebih stabil dan produktif**.
-
+---
+Berikut adalah contoh "Persiapan" proyek yang dioptimalkan dan disusun dengan gaya yang kuat—menekankan sumber data serta setup environment menggunakan Google Colab. Tulisan ini dirancang untuk memberikan fondasi yang utuh, jelas, dan siap pakai dalam mengidentifikasi penyebab utama attrition melalui analisis data yang komprehensif.
 
 ---
 
-## Cara Menjalankan Proyek
-1. Install dependencies yang diperlukan:
-   ```bash
-   pip install -r requirements.txt
+## Persiapan Proyek
+
+### Sumber Data
+
+Dalam proyek ini, menggunakan dataset HR yang sangat lengkap dan terverifikasi, yang diberikan oleh perusahaan **"Jaya Jaya Maju"**. Dataset ini terdiri dari 35 atribut yang mencakup:
+- **Aspek Demografi:** Usia, Gender, Pendidikan, dan informasi personal lainnya.
+- **Aspek Finansial dan Kompensasi:** DailyRate, MonthlyIncome, MonthlyRate, dan variabel kompensasi lainnya.
+- **Aspek Pengalaman dan Kinerja:** TotalWorkingYears, YearsAtCompany, JobRole, serta metrik kepuasan kerja dan keterlibatan karyawan.
+
+Data ini diunduh langsung dari sumber tepercaya:
+```python
+data_url = "https://raw.githubusercontent.com/dicodingacademy/dicoding_dataset/refs/heads/main/employee/employee_data.csv"
+```
+Dengan sumber data yang begitu komprehensif, kita memiliki dasar yang kuat untuk menggali insight mendalam mengenai faktor-faktor yang mempengaruhi keputusan karyawan untuk bertahan atau meninggalkan perusahaan.
+
+---
+
+### Setup Environment
+
+Google Colab merupakan platform yang ideal untuk proyek ini karena menyediakan lingkungan komputasi berbasis cloud yang interaktif dan lengkap. Berikut adalah langkah-langkah setup environment yang telah dioptimalkan untuk kolaborasi dan efisiensi:
+
+1. **Google Colab sebagai Platform Utama**  
+   Manfaatkan Google Colab untuk menjelajahi data secara interaktif, menjalankan pemodelan, dan membuat visualisasi secara langsung. Colab sudah menyediakan banyak library utama (seperti Pandas, NumPy, Matplotlib, dan Seaborn) yang sudah terinstal. Namun, untuk memastikan bahwa semua dependensi tersedia, jalankan sel berikut di awal notebook:
+
+   ```python
+   # Instal library tambahan (jika belum terpasang)
+   !pip install shap scikit-learn
    ```
-3. Buka file notebook `Jaya_Jaya_Maju.ipynb` di Jupyter Notebook atau Jupyter Lab.
-4. Jalankan setiap sel secara berurutan untuk mereproduksi hasil.
+
+2. **Pengaturan Library dan Import Modul**  
+   Impor semua library penting yang akan digunakan untuk pengambilan data, pembersihan data, analisis eksplorasi, dan pemodelan:
+   
+   ```python
+   import pandas as pd
+   import numpy as np
+   import matplotlib.pyplot as plt
+   import seaborn as sns
+   from sklearn.model_selection import train_test_split
+   from sklearn.linear_model import LogisticRegression
+   from sklearn.metrics import accuracy_score, classification_report
+   import shap
+
+   # Set pengaturan visualisasi default untuk grafik
+   %matplotlib inline
+   sns.set(style="whitegrid")
+   ```
+
+3. **Muat dan Praproses Data**  
+   Muat data langsung dari URL menggunakan Pandas, dan simpan data dalam variabel yang akan digunakan di seluruh notebook. Langkah ini memastikan bahwa data terbaru selalu diperbarui secara real-time dalam lingkungan Colab.
+   
+   ```python
+   # Memuat dataset dari URL sumber data
+   data = pd.read_csv(data_url)
+   print("Dataset loaded with shape:", data.shape)
+   ```
+
+4. **Struktur Kode dan Dokumentasi**  
+   Atur notebook dengan menggunakan markdown dan komentar yang mendetail di setiap sel. Ini akan memudahkan kolaborasi dan memastikan bahwa setiap tahap, mulai dari EDA, pembersihan data, hingga pemodelan, dapat ditelusuri secara logis dan transparan.
+
+5. **Integrasi dengan Platform Pelaporan**  
+   Meskipun analisis dilakukan di Google Colab, hasil akhir (termasuk visualisasi interaktif dan insight) akan diintegrasikan dengan Looker Studio untuk dashboard reporting real-time.
 
 ---
+
+Dengan setup environment yang telah dioptimalkan di Google Colab dan sumber data yang komprehensif, proyek ini siap melangkah ke tahap selanjutnya. Dapat melakukan eksplorasi mendalam, membangun model prediktif, dan menyusun dashboard interaktif yang menyajikan insight strategis mengenai attrition karyawan.
+
+---
+

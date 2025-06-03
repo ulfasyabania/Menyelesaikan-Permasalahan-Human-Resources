@@ -48,7 +48,7 @@ Dashboard ini dapat diakses secara online melalui link berikut:
 Berdasarkan hasil analisis data dan pengembangan model prediktif, dapat disimpulkan bahwa:
 
 - **Faktor-Faktor Kunci:**  
-  Analisis mendalam mengungkapkan bahwa variabel-variabel seperti usia, penghasilan bulanan, pola lembur (OverTime), beban kerja harian, dan total tahun kerja memainkan peranan penting dalam mempengaruhi risiko attrition. Hal ini menandakan bahwa karyawan pada kelompok tertentu —misalnya, dengan beban kerja tinggi atau gaji yang kurang kompetitif—memiliki kecenderungan lebih tinggi untuk keluar.
+  Analisis mendalam mengungkapkan bahwa variabel-variabel seperti usia, penghasilan bulanan, pola lembur (OverTime), beban kerja harian, dan total tahun kerja memainkan peranan penting dalam mempengaruhi risiko attrition. Hal ini menandakan bahwa karyawan pada kelompok tertentu misalnya, dengan beban kerja tinggi atau gaji yang kurang kompetitif memiliki kecenderungan lebih tinggi untuk keluar.
 
 - **Model Prediktif Efektif:**  
   Tiga model machine learning yang telah dikembangkan (Logistic Regression, Random Forest, dan XGBoost) secara kolektif mampu mendeteksi karyawan berisiko attrition. Meskipun akurasi keseluruhan cukup memuaskan, performa pada kelas minoritas (karyawan yang keluar) masih perlu dioptimalkan melalui penyesuaian threshold, pengaturan parameter model (misalnya, penggunaan class_weight atau scale_pos_weight), serta penerapan teknik cost-sensitive learning.

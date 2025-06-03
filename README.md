@@ -1,9 +1,9 @@
-# Proyek Akhir: Menyelesaikan Permasalahan Manajemen Karyawan di Jaya Jaya Maju
+# Proyek Akhir: Menyelesaikan Permasalahan Perusahaan Edutech
 
 ## Business Understanding
 
 **Latar Belakang Bisnis**  
-Jaya Jaya Maju merupakan salah satu perusahaan multinasional yang telah berdiri sejak tahun 2000, dan kini mempekerjakan lebih dari 1000 karyawan yang tersebar di seluruh penjuru negeri. Walaupun telah mencapai skala besar, perusahaan ini masih menghadapi tantangan serius dalam mengelola karyawan. Salah satu indikator utama dari permasalahan tersebut adalah tingginya attrition rate—yakni rasio karyawan yang keluar dibandingkan dengan total karyawan—yang mencapai lebih dari 10%. Masalah ini memiliki dampak besar terhadap stabilitas operasional dan produktivitas perusahaan.
+Jaya Jaya Maju merupakan salah satu perusahaan multinasional yang telah berdiri sejak tahun 2000, dan kini mempekerjakan lebih dari 1000 karyawan yang tersebar di seluruh penjuru negeri. Walaupun telah mencapai skala besar, perusahaan ini masih menghadapi tantangan serius dalam mengelola karyawan. Salah satu indikator utama dari permasalahan tersebut adalah tingginya attrition rate yakni rasio karyawan yang keluar dibandingkan dengan total karyawan yang mencapai lebih dari 10%. Masalah ini memiliki dampak besar terhadap stabilitas operasional dan produktivitas perusahaan.
 
 ## Permasalahan Bisnis
 
@@ -22,13 +22,12 @@ Proyek ini mencakup ruang lingkup berikut:
 
 ## Persiapan
 
-**Sumber Data:**  
-- Data karyawan yang berisi informasi pribadi, riwayat kerja, performa, dan feedback.
+**Sumber Data:**
 - Data historis terkait attrition, kompensasi, dan kepuasan karyawan.  
-*(Dataset lengkap dapat diunduh melalui tautan yang disediakan oleh pihak Jaya Jaya Maju.)*
+[*(Dataset lengkap dapat diunduh melalui tautan yang disediakan oleh pihak Perusahaan.)*](https://github.com/dicodingacademy/dicoding_dataset/tree/main/employee)
 
 **Setup Environment:**  
-- **Bahasa Pemrograman:** Python 3.x  
+- **Bahasa Pemrograman:** Python
 - **Libraries:** Pandas, NumPy, Scikit-learn, XGBoost, Matplotlib, Seaborn, dan library pendukung lainnya.  
 - **IDE/Platform:** Jupyter Notebook, Google Colab, atau VS Code.  
 - **Tools Pendukung:** Git untuk version control dan Docker (jika diperlukan untuk deployment).
@@ -42,8 +41,7 @@ Dashboard bisnis yang telah dikembangkan meliputi fitur-fitur berikut:
 - **Interaktivitas:** Dashboard yang interaktif memungkinkan manajer HR untuk mengklik dan menganalisis subset data tertentu, seperti melihat karyawan berdasarkan jabatan atau departemen.
 
 Dashboard ini dapat diakses secara online melalui link berikut:  
-[Link Dashboard Jaya Jaya Maju](https://example.com/dashboard)  
-*(Ganti dengan link akses aktual jika sudah tersedia.)*
+[**Link Dashboard**](https://lookerstudio.google.com/reporting/75f90d63-0782-44e5-b46c-22eded578b1a)
 
 ## Conclusion
 

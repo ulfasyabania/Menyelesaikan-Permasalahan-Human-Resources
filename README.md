@@ -45,16 +45,41 @@ Dashboard ini dapat diakses secara online melalui link berikut:
 
 ## Conclusion
 
-Dari hasil analisis data dan model prediktif yang telah dikembangkan, dapat disimpulkan bahwa:
-- **Faktor-Faktor Kunci:** Beberapa faktor, seperti kepuasan kerja yang rendah, kompensasi yang kurang kompetitif, dan kurangnya peluang pengembangan karir, memiliki pengaruh signifikan terhadap tingginya attrition di Jaya Jaya Maju.
-- **Model Prediktif Efektif:** Model machine learning yang dibangun (termasuk Logistic Regression, Random Forest, dan XGBoost) berhasil mengidentifikasi karyawan berisiko tinggi attrition, meskipun diperlukan optimalisasi lebih lanjut (misalnya, penyesuaian threshold dan penanganan data imbalanced) untuk meningkatkan sensitivitas model, terutama pada kelas minoritas.
-- **Dashboard sebagai Alat Monitoring:** Business dashboard yang telah dibuat memberikan alat monitoring yang komprehensif, memungkinkan manajer HR untuk melakukan evaluasi dan pengambilan keputusan berbasis data secara real time.
+Berdasarkan hasil analisis data dan pengembangan model prediktif, dapat disimpulkan bahwa:
+
+- **Faktor-Faktor Kunci:**  
+  Analisis mendalam mengungkapkan bahwa variabel-variabel seperti usia, penghasilan bulanan, pola lembur (OverTime), beban kerja harian, dan total tahun kerja memainkan peranan penting dalam mempengaruhi risiko attrition. Hal ini menandakan bahwa karyawan pada kelompok tertentu —misalnya, dengan beban kerja tinggi atau gaji yang kurang kompetitif—memiliki kecenderungan lebih tinggi untuk keluar.
+
+- **Model Prediktif Efektif:**  
+  Tiga model machine learning yang telah dikembangkan (Logistic Regression, Random Forest, dan XGBoost) secara kolektif mampu mendeteksi karyawan berisiko attrition. Meskipun akurasi keseluruhan cukup memuaskan, performa pada kelas minoritas (karyawan yang keluar) masih perlu dioptimalkan melalui penyesuaian threshold, pengaturan parameter model (misalnya, penggunaan class_weight atau scale_pos_weight), serta penerapan teknik cost-sensitive learning.
+
+- **Dashboard Bisnis sebagai Alat Monitoring:**  
+  Business dashboard interaktif yang dikembangkan memberikan visualisasi real-time dari metrik utama, termasuk trend attrition dan faktor-faktor penyebabnya. Dashboard ini memungkinkan tim HR untuk melakukan analisis mendalam dan pengambilan keputusan dengan cepat berdasarkan insight yang ada.
+
+---
 
 ## Rekomendasi Action Items
 
-Untuk menurunkan attrition rate dan meningkatkan retensi karyawan, disarankan agar perusahaan melakukan beberapa langkah strategis, antara lain:
-- **Action Item 1:** Tingkatkan program kesejahteraan karyawan dan sistem reward yang didasarkan pada kinerja dan loyalitas, serta menawarkan kesempatan pengembangan karir yang lebih baik.  
-- **Action Item 2:** Optimalkan struktur kompensasi agar lebih kompetitif dengan benchmark industri, melalui survey dan analisis perbandingan dengan perusahaan sejenis.  
-- **Action Item 3:** Implementasikan penggunaan dashboard secara rutin untuk memonitor indikator-indikator utama, sehingga intervensi dapat dilakukan secara proaktif berdasarkan insight data yang diperoleh.
+Untuk menurunkan attrition rate dan meningkatkan retensi karyawan, disarankan agar perusahaan mempertimbangkan langkah-langkah strategis berikut:
+
+1. **Optimalisasi Program Kesejahteraan dan Pengembangan Karyawan:**  
+   - Tingkatkan program kesejahteraan yang mencakup aspek kesehatan, keseimbangan kerja-hidup, dan dukungan psikologis.  
+   - Tawarkan kesempatan pengembangan karir melalui pelatihan, mentoring, dan peningkatan kompetensi agar karyawan merasa dihargai dan memiliki prospek jangka panjang.
+
+2. **Penyesuaian Struktur Kompensasi:**  
+   - Lakukan survey dan analisis benchmarking untuk memastikan bahwa paket kompensasi dan benefit perusahaan kompetitif dibandingkan dengan industri sejenis.  
+   - Pertimbangkan skema reward tambahan berbasis kinerja dan loyalitas untuk meningkatkan motivasi dan retensi karyawan.
+
+3. **Penggunaan Dashboard Secara Rutin:**  
+   - Implementasikan penggunaan business dashboard dalam kegiatan rutin HR untuk memonitor indikator utama secara real-time.  
+   - Gunakan dashboard sebagai alat pengambil keputusan untuk segera mengidentifikasi dan mengintervensi area dengan risiko attrition tinggi.
+
+4. **Optimasi Model Prediktif:**  
+   - Lanjutkan eksplorasi teknik machine learning dengan penyesuaian threshold, cost-sensitive learning, serta pengaturan parameter tambahan untuk meningkatkan sensitivitas model terhadap kelas minoritas.  
+   - Evaluasi performa model secara berkala dengan metrik seperti ROC-AUC, F1-score, dan precision-recall curve untuk memastikan model tetap akurat dalam mendeteksi karyawan berisiko.
+
+5. **Pendekatan Proaktif dalam Manajemen SDM:**  
+   - Gunakan insight dari analisis data untuk mengidentifikasi potensi permasalahan internal lainnya yang mungkin memicu turnover, sehingga intervensi tidak hanya reaktif tetapi juga preventif.  
+   - Libatkan berbagai stakeholder (manajemen, tim HR, dan pimpinan lini) dalam menyusun strategi retensi yang berbasis data dan terus melakukan monitoring atas implementasi strategi tersebut.
 
 ---
